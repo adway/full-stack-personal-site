@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authActions';
 import jwt_decode from 'jwt-decode';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Components import
 import Navbar from './components/layout/Navbar';
