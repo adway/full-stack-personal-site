@@ -5,8 +5,16 @@ import PropTypes from 'prop-types';
 import { getProject } from '../../actions/projectActions';
 import isEmpty from '../../validation/is-empty';
 import moment from 'moment';
+import showdown from 'showdown';
 
 class IndividualProject extends Component {
+	constructor() {
+		super();
+		this.state = {
+			description: ''
+		};
+	}
+
 	componentDidMount() {
 		if (this.props.match.params.id) {
 			this.props.getProject(this.props.match.params.id);
@@ -17,6 +25,13 @@ class IndividualProject extends Component {
 		if (nextProps.project.project === null && this.props.project.loading) {
 			this.props.history.push('/not-found');
 		}
+
+		const converter = new showdown.Converter();
+		const text = nextProps.project.project.description;
+		const html = converter.makeHtml(text);
+		this.setState({
+			description: html
+		});
 	}
 	render() {
 		return (
@@ -70,9 +85,10 @@ class IndividualProject extends Component {
 					<div className="container">
 						<div className="columns">
 							<div className="column">
-								<p className="standard">
-									{this.props.project.project.description}
-								</p>
+								<div
+									className="markdown-body"
+									dangerouslySetInnerHTML={{ __html: this.state.description }}
+								/>
 								{!isEmpty(this.props.project.project.materials) ? (
 									<p className="standard">
 										<a

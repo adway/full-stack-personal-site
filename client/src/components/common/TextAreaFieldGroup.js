@@ -22,6 +22,7 @@ const TextAreaFieldGroup = ({
           onChange={onChange}
           value={value}
           disabled={disabled}
+          id="code"
         />
       </div>
 
