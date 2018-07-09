@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
+const path = require('path');
 
 const users = require('./routes/api/users');
 const projects = require('./routes/api/projects');
@@ -16,6 +17,8 @@ app.use(bodyParser.json());
 
 // Database Config
 const db = require('./config/keys').mongoURI;
+
+const adwaypassword = require('./config/keys').adwaypassword;
 // Connect to DB
 mongoose
 	.connect(db)
@@ -30,13 +33,23 @@ require('./config/passport')(passport);
 app.use('/api/users', users);
 app.use('/api/projects', projects);
 
+// Serve static assets if in production
+if (process.env.NODE_ENV === 'production') {
+	// Set Static Folder
+	app.use(express.static('client/build/'));
+
+	app.get('*', (req, res) => {
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+	});
+}
+
 User.findOne({ username: 'adway' }).then(user => {
 	if (user) {
 		console.log('Already exists');
 	} else {
 		const newUser = new User({
 			username: 'adway'.toLowerCase(),
-			password: 'thenameisbondjamesbond'
+			password: adwaypassword
 		});
 
 		bcrypt.genSalt(10, (err, salt) => {
