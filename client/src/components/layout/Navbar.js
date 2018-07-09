@@ -62,7 +62,7 @@ class Navbar extends Component {
 
 		return (
 			<div>
-				<nav className="navbar is-dark">
+				<nav className="navbar is-dark is-fixed-top">
 					<div className="container">
 						<div className="navbar-brand">
 							<a
