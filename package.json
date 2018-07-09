@@ -16,6 +16,7 @@
 		"bcryptjs": "^2.4.3",
 		"body-parser": "^1.18.3",
 		"concurrently": "^3.6.0",
+		"dotenv": "^6.0.0",
 		"express": "^4.16.3",
 		"gravatar": "^1.6.0",
 		"jsonwebtoken": "^8.3.0",
@@ -28,7 +29,10 @@
 		"nodemon": "^1.17.5"
 	},
 	"eslintConfig": {
-		"extends": ["eslint:recommended", "plugin:react/recommended"],
+		"extends": [
+			"eslint:recommended",
+			"plugin:react/recommended"
+		],
 		"parserOptions": {
 			"ecmaVersion": 6,
 			"sourceType": "module",
