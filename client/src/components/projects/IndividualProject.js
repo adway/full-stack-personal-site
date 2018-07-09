@@ -26,7 +26,7 @@ class IndividualProject extends Component {
 			this.props.history.push('/not-found');
 		}
 
-		const converter = new showdown.Converter();
+		const converter = new showdown.Converter({ tables: true });
 		const text = nextProps.project.project.description;
 		const html = converter.makeHtml(text);
 		this.setState({
