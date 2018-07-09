@@ -10,7 +10,7 @@ class Footer extends Component {
 							<p>&copy; Adway S. Wadekar 2018</p>
 							<p>
 								Made with <i className="fas fa-heart" /> &{' '}
-								<i className="fas fa-utensils" /> by in the beautiful city of
+								<i className="fas fa-utensils" /> in the beautiful city of
 								Boston, MA.
 							</p>
 							<p>adway [@] adway [dot] io</p>
