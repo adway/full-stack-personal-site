@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authActions';
 import jwt_decode from 'jwt-decode';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Components import
 import Navbar from './components/layout/Navbar';
@@ -45,24 +45,30 @@ class App extends Component {
 			<Provider store={store}>
 				<Router>
 					<div className="App">
-						<Navbar />
-						<Route exact path="/" component={Landing} />
-						<Route exact path="/login" component={Login} />
-						<Route exact path="/projects" component={Projects} />
-						<Route exact path="/projects/:id" component={IndividualProject} />
-						<Switch>
-							<PrivateRoute exact path="/dashboard" component={Dashboard} />
-						</Switch>
-						<Switch>
-							<PrivateRoute
-								exact
-								path="/edit-project/:id"
-								component={EditProject}
-							/>
-						</Switch>
-						<Switch>
-							<PrivateRoute exact path="/add-project" component={AddProject} />
-						</Switch>
+						<div className="stuff">
+							<Navbar />
+							<Route exact path="/" component={Landing} />
+							<Route exact path="/login" component={Login} />
+							<Route exact path="/projects" component={Projects} />
+							<Route exact path="/projects/:id" component={IndividualProject} />
+							<Switch>
+								<PrivateRoute exact path="/dashboard" component={Dashboard} />
+							</Switch>
+							<Switch>
+								<PrivateRoute
+									exact
+									path="/edit-project/:id"
+									component={EditProject}
+								/>
+							</Switch>
+							<Switch>
+								<PrivateRoute
+									exact
+									path="/add-project"
+									component={AddProject}
+								/>
+							</Switch>
+						</div>
 						<Footer />
 					</div>
 				</Router>
