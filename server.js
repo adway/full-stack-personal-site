@@ -54,4 +54,4 @@ User.findOne({ username: 'adway' }).then(user => {
 
 const port = process.env.port || 5000;
 
-app.listen(5000, () => console.log(`Server running on port ${port}`));
+app.listen(port, () => console.log(`Server running on port ${port}`));

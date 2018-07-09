@@ -67,7 +67,7 @@ class Navbar extends Component {
 						<div className="navbar-brand">
 							<a
 								className="navbar-item"
-								href="#"
+								href="/"
 								style={{ fontWeight: 'bold' }}
 							>
 								adway s. wadekar

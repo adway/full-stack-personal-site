@@ -28,6 +28,7 @@ class Landing extends Component {
 									<a
 										href="https://www.dropbox.com/s/bauveclugcescao/Resume.docx?dl=0"
 										target="_blank"
+										rel="noopener noreferrer"
 									>
 										here
 									</a>.

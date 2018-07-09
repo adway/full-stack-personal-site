@@ -55,7 +55,11 @@ class IndividualProject extends Component {
 					<div className="container">
 						<div className="columns">
 							{!isEmpty(this.props.project.project.image) ? (
-								<img src={this.props.project.project.image} className="image" />
+								<img
+									src={this.props.project.project.image}
+									className="image"
+									alt={this.props.project.project.title}
+								/>
 							) : (
 								''
 							)}
@@ -69,6 +73,20 @@ class IndividualProject extends Component {
 								<p className="standard">
 									{this.props.project.project.description}
 								</p>
+								{!isEmpty(this.props.project.project.materials) ? (
+									<p className="standard">
+										<a
+											href={this.props.project.project.materials}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="button is-outlined is-link"
+										>
+											View Materials
+										</a>
+									</p>
+								) : (
+									''
+								)}
 							</div>
 						</div>
 					</div>
