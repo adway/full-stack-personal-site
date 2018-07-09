@@ -1,0 +1,58 @@
+{
+	"name": "adway-mern",
+	"version": "1.0.0",
+	"description": "This is my website using the MERN stack.",
+	"main": "server.js",
+	"scripts": {
+		"client-install": "npm install --prefix client",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"server": "nodemon server.js",
+		"client": "npm start --prefix client",
+		"dev": "concurrently \"npm run server\" \"npm run client\""
+	},
+	"author": "Adway S. Wadekar",
+	"license": "ISC",
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"body-parser": "^1.18.3",
+		"concurrently": "^3.6.0",
+		"express": "^4.16.3",
+		"gravatar": "^1.6.0",
+		"jsonwebtoken": "^8.3.0",
+		"mongoose": "^5.1.5",
+		"passport": "^0.4.0",
+		"passport-jwt": "^4.0.0",
+		"validator": "^10.3.0"
+	},
+	"devDependencies": {
+		"nodemon": "^1.17.5"
+	},
+	"eslintConfig": {
+		"extends": ["eslint:recommended", "plugin:react/recommended"],
+		"parserOptions": {
+			"ecmaVersion": 6,
+			"sourceType": "module",
+			"ecmaFeatures": {
+				"jsx": true,
+				"experimentalObjectRestSpread": true
+			}
+		},
+		"rules": {
+			"react/display-name": [
+				0,
+				{
+					"ignoreTranspilerName": true
+				}
+			],
+			"no-console": 0,
+			"no-unused-vars": [
+				"warn",
+				{
+					"args": "none"
+				}
+			],
+			"react/prop-types": 0,
+			"react/no-unescaped-entities": 0
+		}
+	}
+}
