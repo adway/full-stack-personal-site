@@ -6,6 +6,7 @@ import { getProject } from '../../actions/projectActions';
 import isEmpty from '../../validation/is-empty';
 import moment from 'moment';
 import showdown from 'showdown';
+import Highlight from 'react-highlight';
 
 class IndividualProject extends Component {
 	constructor() {
@@ -85,10 +86,15 @@ class IndividualProject extends Component {
 					<div className="container">
 						<div className="columns">
 							<div className="column">
-								<div
-									className="markdown-body"
-									dangerouslySetInnerHTML={{ __html: this.state.description }}
-								/>
+								<div className="markdown-body">
+									<Highlight innerHTML={true}>
+										{this.state.description}
+									</Highlight>
+								</div>
+							</div>
+						</div>
+						<div className="columns">
+							<div className="column">
 								{!isEmpty(this.props.project.project.materials) ? (
 									<p className="standard">
 										<a

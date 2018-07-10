@@ -36,7 +36,10 @@ class Dashboard extends Component {
 							<Link to="/add-project" className="button is-outlined is-link">
 								Add Project
 							</Link>
-							<table className="table is-fullwidth">
+							<table
+								className="table is-fullwidth"
+								style={{ marginTop: '2em' }}
+							>
 								<thead>
 									<tr>
 										<th>Project</th>
