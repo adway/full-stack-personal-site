@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import isEmpty from '../../validation/is-empty';
 import { Link } from 'react-router-dom';
+import Spinner from '../common/Spinner';
 
 class Projects extends Component {
 	constructor() {
@@ -16,6 +17,7 @@ class Projects extends Component {
 
 	componentDidMount() {
 		this.props.getProjects();
+		window.scrollTo(0, 0);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -28,6 +30,45 @@ class Projects extends Component {
 	}
 
 	render() {
+		const { projects, loading } = this.props.project;
+		let projectsContent;
+		if (projects === null || loading) {
+			projectsContent = <Spinner />;
+		} else {
+			projectsContent = (
+				<div>
+					<section className="section">
+						<div className="container">
+							<div className="columns">
+								<div className="column">
+									{this.state.projects.map(project => {
+										return (
+											<div key={project._id} style={{ paddingBottom: '2em' }}>
+												<h1 className="subtitle is-3">{project.title}</h1>
+												<p className="subtitle is-5">
+													{!isEmpty(project.date)
+														? moment(project.date).format('MMMM YYYY')
+														: ''}
+												</p>
+												<p>
+													<Link
+														to={`/projects/${project._id}`}
+														className="button is-outlined is-link"
+													>
+														View Project
+													</Link>
+												</p>
+											</div>
+										);
+									})}
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			);
+		}
+
 		return (
 			<div>
 				<section className="hero is-dark is-bold is-medium">
@@ -37,34 +78,7 @@ class Projects extends Component {
 						</div>
 					</div>
 				</section>
-				<section className="section">
-					<div className="container">
-						<div className="columns">
-							<div className="column">
-								{this.state.projects.map(project => {
-									return (
-										<div key={project._id} style={{ paddingBottom: '2em' }}>
-											<h1 className="subtitle is-3">{project.title}</h1>
-											<p className="subtitle is-5">
-												{!isEmpty(project.date)
-													? moment(project.date).format('MMMM YYYY')
-													: ''}
-											</p>
-											<p>
-												<Link
-													to={`/projects/${project._id}`}
-													className="button is-outlined is-link"
-												>
-													View Project
-												</Link>
-											</p>
-										</div>
-									);
-								})}
-							</div>
-						</div>
-					</div>
-				</section>
+				{projectsContent}
 			</div>
 		);
 	}

@@ -7,6 +7,7 @@ import isEmpty from '../../validation/is-empty';
 import moment from 'moment';
 import showdown from 'showdown';
 import Highlight from 'react-highlight';
+import Spinner from '../common/Spinner';
 
 class IndividualProject extends Component {
 	constructor() {
@@ -20,6 +21,7 @@ class IndividualProject extends Component {
 		if (this.props.match.params.id) {
 			this.props.getProject(this.props.match.params.id);
 		}
+		window.scrollTo(0, 0);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -35,6 +37,62 @@ class IndividualProject extends Component {
 		});
 	}
 	render() {
+		const { project, loading } = this.props.project;
+		let content;
+		if (project === null || loading) {
+			content = <Spinner />;
+		} else {
+			content = (
+				<div>
+					<section className="section">
+						<div className="container">
+							<div className="columns">
+								{!isEmpty(this.props.project.project.image) ? (
+									<img
+										src={this.props.project.project.image}
+										className="image"
+										alt={this.props.project.project.title}
+									/>
+								) : (
+									''
+								)}
+							</div>
+						</div>
+					</section>
+					<section className="section">
+						<div className="container">
+							<div className="columns">
+								<div className="column">
+									<div className="markdown-body">
+										<Highlight innerHTML={true}>
+											{this.state.description}
+										</Highlight>
+									</div>
+								</div>
+							</div>
+							<div className="columns">
+								<div className="column">
+									{!isEmpty(this.props.project.project.materials) ? (
+										<p className="standard">
+											<a
+												href={this.props.project.project.materials}
+												target="_blank"
+												rel="noopener noreferrer"
+												className="button is-outlined is-link"
+											>
+												View Materials
+											</a>
+										</p>
+									) : (
+										''
+									)}
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			);
+		}
 		return (
 			<div>
 				{' '}
@@ -67,52 +125,7 @@ class IndividualProject extends Component {
 						</div>
 					</div>
 				</section>
-				<section className="section">
-					<div className="container">
-						<div className="columns">
-							{!isEmpty(this.props.project.project.image) ? (
-								<img
-									src={this.props.project.project.image}
-									className="image"
-									alt={this.props.project.project.title}
-								/>
-							) : (
-								''
-							)}
-						</div>
-					</div>
-				</section>
-				<section className="section">
-					<div className="container">
-						<div className="columns">
-							<div className="column">
-								<div className="markdown-body">
-									<Highlight innerHTML={true}>
-										{this.state.description}
-									</Highlight>
-								</div>
-							</div>
-						</div>
-						<div className="columns">
-							<div className="column">
-								{!isEmpty(this.props.project.project.materials) ? (
-									<p className="standard">
-										<a
-											href={this.props.project.project.materials}
-											target="_blank"
-											rel="noopener noreferrer"
-											className="button is-outlined is-link"
-										>
-											View Materials
-										</a>
-									</p>
-								) : (
-									''
-								)}
-							</div>
-						</div>
-					</div>
-				</section>
+				{content}
 			</div>
 		);
 	}

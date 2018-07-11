@@ -21,6 +21,8 @@ class Login extends Component {
 		if (this.props.auth.isAuthenticated) {
 			this.props.history.push('/dashboard');
 		}
+
+		window.scrollTo(0, 0);
 	}
 
 	onChange(e) {
