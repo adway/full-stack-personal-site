@@ -44,6 +44,36 @@ class IndividualProject extends Component {
 		} else {
 			content = (
 				<div>
+					{' '}
+					<section className="section">
+						<div className="container">
+							<Link
+								to="/projects"
+								className="button is-link is-outlined"
+								style={{ marginBottom: '2em' }}
+							>
+								Back to Projects
+							</Link>
+							<div className="hero is-medium is-dark">
+								<div className="hero-body">
+									<div className="container">
+										<p className="title" style={{ textAlign: 'center' }}>
+											{this.props.project.project.title}
+										</p>
+										{!isEmpty(this.props.project.project.date) ? (
+											<p className="subtitle" style={{ textAlign: 'center' }}>
+												{moment(this.props.project.project.date).format(
+													'MMMM YYYY'
+												)}
+											</p>
+										) : (
+											''
+										)}
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
 					<section className="section">
 						<div className="container">
 							<div className="columns">
@@ -93,41 +123,7 @@ class IndividualProject extends Component {
 				</div>
 			);
 		}
-		return (
-			<div>
-				{' '}
-				<section className="section">
-					<div className="container">
-						<Link
-							to="/projects"
-							className="button is-link is-outlined"
-							style={{ marginBottom: '2em' }}
-						>
-							Back to Projects
-						</Link>
-						<div className="hero is-medium is-dark">
-							<div className="hero-body">
-								<div className="container">
-									<p className="title" style={{ textAlign: 'center' }}>
-										{this.props.project.project.title}
-									</p>
-									{!isEmpty(this.props.project.project.date) ? (
-										<p className="subtitle" style={{ textAlign: 'center' }}>
-											{moment(this.props.project.project.date).format(
-												'MMMM YYYY'
-											)}
-										</p>
-									) : (
-										''
-									)}
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				{content}
-			</div>
-		);
+		return <div>{content}</div>;
 	}
 }
 
