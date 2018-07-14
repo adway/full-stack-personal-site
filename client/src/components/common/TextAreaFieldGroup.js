@@ -23,6 +23,7 @@ const TextAreaFieldGroup = ({
           value={value}
           disabled={disabled}
           id="code"
+          rows="20"
         />
       </div>
 
