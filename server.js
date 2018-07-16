@@ -22,9 +22,9 @@ const db = require('./config/keys').mongoURI;
 const adwaypassword = require('./config/keys').adwaypassword;
 // Connect to DB
 mongoose
-	.connect(db)
-	.then(() => console.log('MongoDB Connected'))
-	.catch(err => console.log(err));
+  .connect(db)
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err));
 
 app.use(passport.initialize());
 
@@ -36,34 +36,47 @@ app.use('/api/projects', projects);
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
-	// Set Static Folder
-	app.use(express.static('client/build'));
+  app.get('*.js', function(req, res, next) {
+    req.url = req.url + '.gz';
+    res.set('Content-Encoding', 'gzip');
+    res.set('Content-Type', 'text/javascript');
+    next();
+  });
 
-	app.get('*', (req, res) => {
-		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-	});
+  app.get('*.css', function(req, res, next) {
+    req.url = req.url + '.gz';
+    res.set('Content-Encoding', 'gzip');
+    res.set('Content-Type', 'text/css');
+    next();
+  });
+  // Set Static Folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
 }
 
 User.findOne({ username: 'adway' }).then(user => {
-	if (user) {
-		console.log('Already exists');
-	} else {
-		const newUser = new User({
-			username: 'adway'.toLowerCase(),
-			password: adwaypassword
-		});
+  if (user) {
+    console.log('Already exists');
+  } else {
+    const newUser = new User({
+      username: 'adway'.toLowerCase(),
+      password: adwaypassword
+    });
 
-		bcrypt.genSalt(10, (err, salt) => {
-			bcrypt.hash(newUser.password, salt, (err, hash) => {
-				if (err) throw err;
-				newUser.password = hash;
-				newUser
-					.save()
-					.then(user => console.log(user))
-					.catch(err => console.log(err));
-			});
-		});
-	}
+    bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.hash(newUser.password, salt, (err, hash) => {
+        if (err) throw err;
+        newUser.password = hash;
+        newUser
+          .save()
+          .then(user => console.log(user))
+          .catch(err => console.log(err));
+      });
+    });
+  }
 });
 
 const port = process.env.port || 5000;
