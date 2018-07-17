@@ -55,3 +55,7 @@ img {
 .stuff {
   margin-bottom: 3em;
 }
+
+.markdown-body p {
+  text-align: justify !important;
+}
