@@ -26,6 +26,7 @@ class Navbar extends Component {
   onLogoutClick(e) {
     e.preventDefault();
     this.props.logoutUser();
+    this.setState({ navToggled: false });
   }
 
   onLinkClick() {
@@ -52,11 +53,7 @@ class Navbar extends Component {
         >
           dashboard
         </Link>
-        <a
-          href="/"
-          className="navbar-item"
-          onClick={this.onLogoutClick && this.onLinkClick}
-        >
+        <a href="/" className="navbar-item" onClick={this.onLogoutClick}>
           logout
         </a>
       </div>
