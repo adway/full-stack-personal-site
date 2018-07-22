@@ -81,7 +81,7 @@ class Landing extends Component {
 									</a>. Finally, since I hope to pursue a career in academia, I
 									enjoy working on various research projects in the area of
 									social sciences. You can view them all{' '}
-									<a href="/projects">here</a>. I present my research at the <a href="http://scifair.com" rel="noopener noreferrer">Massachusetts State Science and Engineering Fair</a>, as well as various conferences as well.
+									<a href="/projects">here</a>. I present my research at the <a href="http://scifair.com" target="_blank" rel="noopener noreferrer">Massachusetts State Science and Engineering Fair</a>, as well as various conferences as well.
 								</p>
 							</div>
 						</div>
