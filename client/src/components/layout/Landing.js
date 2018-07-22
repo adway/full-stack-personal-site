@@ -12,7 +12,7 @@ class Landing extends Component {
 						<div className="container">
 							<h1 className="title is-1">about me</h1>
 							<h2 className="subtitle">
-								I like to do research, take pictures, read, and code.
+								i enjoy learning, researching, and programming.
 							</h2>
 						</div>
 					</div>
@@ -22,8 +22,7 @@ class Landing extends Component {
 						<div className="columns">
 							<div className="column has-text-white">
 								<p className="standard">
-									Hi! I'm Adway. I love to learn and do research. Most of all, I
-									love to teach. I am interested in studying economics and would
+									Hi! I'm Adway. I am interested in studying economics and would
 									like an academic career in quantitative social policy in the
 									future. In my free time, I like learning about new
 									technologies, although I'm not particularly interested in
@@ -45,10 +44,7 @@ class Landing extends Component {
 									>
 										Saint John's High School
 									</a>{' '}
-									in Shrewsbury, Massachusetts. I am a member of the Politics
-									Club, French Club, and Homework Helpers Club. I am also the
-									president of the Economics/Stock club. In my free time, I like
-									to learn about economics, read the news and take pictures with
+									in Shrewsbury, Massachusetts. In my free time, I enjoy learning about economics, reading the news and taking pictures with
 									my Canon Rebel T5.
 								</p>
 								<p className="standard">
@@ -83,11 +79,9 @@ class Landing extends Component {
 										{' '}
 										Community Advocate Newspaper
 									</a>. Finally, since I hope to pursue a career in academia, I
-									like to work on various research projects in the area of
+									enjoy working on various research projects in the area of
 									social sciences. You can view them all{' '}
-									<a href="/projects">here</a>. Most of the projects that I do
-									are for science fairs, but I do submit projects to various
-									conferences as well.
+									<a href="/projects">here</a>. I present my research at the <a href="http://scifair.com" rel="noopener noreferrer">Massachusetts State Science and Engineering Fair</a>, as well as various conferences as well.
 								</p>
 							</div>
 						</div>
