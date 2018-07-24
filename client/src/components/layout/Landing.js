@@ -28,7 +28,7 @@ class Landing extends Component {
 									technologies, although I'm not particularly interested in
 									engineering or computer science. Feel free to view my résumé{' '}
 									<a
-										href="https://www.dropbox.com/s/bauveclugcescao/Resume.docx?dl=0"
+										href="https://drive.google.com/file/d/1_1uy1wG3VX6jIbNzuJ4QoZHZ9ygwpm-4/view?usp=sharing"
 										target="_blank"
 										rel="noopener noreferrer"
 									>
