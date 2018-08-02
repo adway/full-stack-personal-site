@@ -21,7 +21,13 @@ export const addProject = (projectData, history) => dispatch => {
 export const updateProject = (projectData, id, history) => dispatch => {
 	axios
 		.put(`/api/projects/${id}`, projectData)
-		.then(res => history.push('/dashboard'))
+		.then(function(res){
+			history.push('/dashboard');
+			dispatch({
+				type: GET_ERRORS,
+				payload: {}
+			})
+		})
 		.catch(err =>
 			dispatch({
 				type: GET_ERRORS,

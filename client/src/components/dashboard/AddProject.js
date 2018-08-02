@@ -47,6 +47,7 @@ class AddProject extends Component {
 
 	componentDidMount() {
 		window.scrollTo(0, 0);
+		this.setState({errors: {}})
 	}
 
 	render() {
@@ -77,6 +78,7 @@ class AddProject extends Component {
 									name="date"
 									placeholder="mm/dd/yyyy"
 									value={this.state.date}
+									type="date"
 									label="Date"
 									error={errors.date}
 									onChange={this.onChange}

@@ -56,7 +56,7 @@ class EditProject extends Component {
 			const project = nextProps.project.project;
 			project.materials = !isEmpty(project.materials) ? project.materials : '';
 			project.date = !isEmpty(project.date)
-				? moment.utc(project.date).format('MM/DD/YYYY')
+				? moment.utc(project.date).format('YYYY-MM-DD')
 				: '';
 			project.image = !isEmpty(project.image) ? project.image : '';
 			this.setState({
@@ -78,7 +78,6 @@ class EditProject extends Component {
 		const { project, loading } = this.props.project;
 
 		let content;
-
 		if (project === null || loading) {
 			content = <Spinner />;
 		} else {
@@ -97,7 +96,7 @@ class EditProject extends Component {
 
 							<TextFieldGroup
 								name="date"
-								placeholder="mm/dd/yyyy"
+								type="date"
 								value={this.state.date}
 								label="Date"
 								error={errors.date}
