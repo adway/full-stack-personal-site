@@ -56,7 +56,7 @@ class EditProject extends Component {
 			const project = nextProps.project.project;
 			project.materials = !isEmpty(project.materials) ? project.materials : '';
 			project.date = !isEmpty(project.date)
-				? moment(project.date).format('MM/DD/YYYY')
+				? moment.utc(project.date).format('MM/DD/YYYY')
 				: '';
 			project.image = !isEmpty(project.image) ? project.image : '';
 			this.setState({
