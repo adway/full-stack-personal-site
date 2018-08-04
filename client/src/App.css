@@ -59,3 +59,8 @@ img {
 .markdown-body p {
   text-align: justify !important;
 }
+
+.fa-circle {
+  padding-bottom: 2px;
+  font-size: 12px !important;
+}
