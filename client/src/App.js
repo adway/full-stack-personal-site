@@ -50,6 +50,13 @@ class App extends Component {
 							<Route exact path="/" component={Landing} />
 							<Route exact path="/login" component={Login} />
 							<Route exact path="/projects" component={Projects} />
+							<Switch>
+								<PrivateRoute
+									exact
+									path="/new"
+									component={AddProject}
+								/>
+							</Switch>
 							<Route exact path="/projects/:id" component={IndividualProject} />
 							<Switch>
 								<PrivateRoute exact path="/dashboard" component={Dashboard} />
@@ -57,17 +64,11 @@ class App extends Component {
 							<Switch>
 								<PrivateRoute
 									exact
-									path="/edit-project/:id"
+									path="/projects/:id/edit"
 									component={EditProject}
 								/>
 							</Switch>
-							<Switch>
-								<PrivateRoute
-									exact
-									path="/add-project"
-									component={AddProject}
-								/>
-							</Switch>
+
 						</div>
 						<Footer />
 					</div>

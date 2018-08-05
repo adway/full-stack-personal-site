@@ -41,7 +41,7 @@ class Dashboard extends Component {
 					<section className="section">
 						<div className="columns">
 							<div className="column">
-								<Link to="/add-project" className="button is-outlined is-link">
+								<Link to="/new" className="button is-outlined is-link">
 									Add Project
 								</Link>
 								<table
@@ -62,7 +62,7 @@ class Dashboard extends Component {
 													<td>{project.title}</td>
 													<td>
 														<Link
-															to={`/edit-project/${project._id}`}
+															to={`/projects/${project._id}/edit`}
 															className="button is-outlined is-warning"
 														>
 															Edit
@@ -103,7 +103,7 @@ class Dashboard extends Component {
 				<section className="section">
 					<div className="columns">
 						<div className="column">
-							<Link to="/add-project" className="button is-outlined is-link">
+							<Link to="/new" className="button is-outlined is-link">
 								Add Project
 							</Link>
 							<table
@@ -124,7 +124,7 @@ class Dashboard extends Component {
 												<td>{project.title}</td>
 												<td>
 													<Link
-														to={`/edit-project/${project._id}`}
+														to={`/projects/${project._id}/edit`}
 														className="button is-outlined is-warning"
 													>
 														Edit

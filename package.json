@@ -13,6 +13,7 @@
 	"author": "Adway S. Wadekar",
 	"license": "ISC",
 	"dependencies": {
+		"@sendgrid/mail": "^6.3.1",
 		"bcryptjs": "^2.4.3",
 		"body-parser": "^1.18.3",
 		"concurrently": "^3.6.0",
@@ -29,7 +30,10 @@
 		"nodemon": "^1.17.5"
 	},
 	"eslintConfig": {
-		"extends": ["eslint:recommended", "plugin:react/recommended"],
+		"extends": [
+			"eslint:recommended",
+			"plugin:react/recommended"
+		],
 		"parserOptions": {
 			"ecmaVersion": 6,
 			"sourceType": "module",
