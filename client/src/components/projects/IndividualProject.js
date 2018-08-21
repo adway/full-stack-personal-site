@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { getProject } from '../../actions/projectActions';
-import isEmpty from '../../validation/is-empty';
-import moment from 'moment';
-import showdown from 'showdown';
-import Highlight from 'react-highlight';
-import Spinner from '../common/Spinner';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { getProject } from "../../actions/projectActions";
+import isEmpty from "../../validation/is-empty";
+import moment from "moment";
+import showdown from "showdown";
+import Highlight from "react-highlight";
 
 class IndividualProject extends Component {
   constructor() {
     super();
     this.state = {
-      description: ''
+      description: ""
     };
   }
 
@@ -26,7 +25,7 @@ class IndividualProject extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.project.project === null && this.props.project.loading) {
-      this.props.history.push('/not-found');
+      this.props.history.push("/not-found");
     }
 
     const converter = new showdown.Converter({ tables: true });
@@ -40,34 +39,47 @@ class IndividualProject extends Component {
     const { project, loading } = this.props.project;
     let content;
     if (project === null || loading) {
-      content = <Spinner />;
+      content = (
+        <div
+          id="loading"
+          style={{
+            position: "absolute",
+            height: "100px",
+            width: "100px",
+            top: "50%",
+            left: "50%",
+            marginLeft: "-50px",
+            marginTop: "-50px"
+          }}
+        />
+      );
     } else {
       content = (
         <div>
-          {' '}
+          {" "}
           <section className="section">
             <div className="container">
               <Link
                 to="/projects"
                 className="button is-link is-outlined"
-                style={{ marginBottom: '2em' }}
+                style={{ marginBottom: "2em" }}
               >
                 Back to Projects
               </Link>
               <div className="hero is-medium is-dark">
                 <div className="hero-body">
                   <div className="container">
-                    <p className="title" style={{ textAlign: 'center' }}>
+                    <p className="title" style={{ textAlign: "center" }}>
                       {this.props.project.project.title}
                     </p>
                     {!isEmpty(this.props.project.project.date) ? (
-                      <p className="subtitle" style={{ textAlign: 'center' }}>
+                      <p className="subtitle" style={{ textAlign: "center" }}>
                         {moment(this.props.project.project.date).format(
-                          'MMMM YYYY'
+                          "MMMM YYYY"
                         )}
                       </p>
                     ) : (
-                      ''
+                      ""
                     )}
                   </div>
                 </div>
@@ -84,7 +96,7 @@ class IndividualProject extends Component {
                     alt={this.props.project.project.title}
                   />
                 ) : (
-                  ''
+                  ""
                 )}
               </div>
             </div>
@@ -114,7 +126,7 @@ class IndividualProject extends Component {
                       </a>
                     </p>
                   ) : (
-                    ''
+                    ""
                   )}
                 </div>
               </div>
