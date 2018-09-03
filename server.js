@@ -12,8 +12,6 @@ const projects = require('./routes/api/projects');
 
 const User = require('./models/User');
 
-const sgMail = require('@sendgrid/mail');
-
 // Body Parser Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

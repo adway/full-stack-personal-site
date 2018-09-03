@@ -47,6 +47,13 @@ class Navbar extends Component {
           projects
         </Link>
         <Link
+          to="https://medium.com/@adwaywadekar"
+          className="navbar-item"
+          onClick={this.onLinkClick}
+        >
+          blog
+        </Link>
+        <Link
           to="/dashboard"
           className="navbar-item"
           onClick={this.onLinkClick}
@@ -67,6 +74,13 @@ class Navbar extends Component {
         <Link to="/projects" className="navbar-item" onClick={this.onLinkClick}>
           projects
         </Link>
+        <a
+          href="https://medium.com/@adwaywadekar"
+          className="navbar-item"
+          onClick={this.onLinkClick}
+        >
+          blog
+        </a>
       </div>
     );
 
